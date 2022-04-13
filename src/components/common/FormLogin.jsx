@@ -14,7 +14,6 @@ function FormLogin(props) {
         <div>
             <h1>Login</h1>
             <Form>
-        
             </Form>
         </div>
     );

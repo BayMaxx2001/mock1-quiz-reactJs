@@ -1,4 +1,4 @@
-import { LOGIN_USER } from '../actions_constants';
+import { LOGIN_USER } from '../ConstantsAction';
 const loginUser = (user) => {
     return {
         type: LOGIN_USER,

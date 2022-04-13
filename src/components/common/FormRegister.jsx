@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+FormRegister.propTypes = {
+    
+};
 
-
-function HomePage(props) {
+function FormRegister(props) {
     return (
         <div>
             
@@ -11,4 +13,4 @@ function HomePage(props) {
     );
 }
 
-export default HomePage;
+export default FormRegister;

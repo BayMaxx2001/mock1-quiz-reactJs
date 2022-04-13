@@ -1,0 +1,15 @@
+.logo {
+  width: 120px;
+  height: 31px;
+  background: #d3adf7;
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+.footer {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  padding-bottom: 2%;
+}
