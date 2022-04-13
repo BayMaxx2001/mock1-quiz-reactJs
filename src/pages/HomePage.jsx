@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { LoginProvider } from '../context/loginContext';
-
+import { useUserAuthContext } from '../context/UserAuthContext';
 
 
 function HomePage(props) {
+    const [state, dispatch] = useUserAuthContext()
+    const { user } = state
+    console.log('HomePage', state)
     return (
         <div>
-            <LoginProvider>
-            </LoginProvider>
+            welcome {user.username}
         </div>
     );
 }

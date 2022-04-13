@@ -1,2 +1,3 @@
-export const LOGIN_USER = 'LOGIN_USER'
-export const REGISTER_USER = 'REGISTER_USER'
+export const USER_AUTH = 'USER_AUTH'
+export const ON_LOADING = 'ON_LOADING'
+export const OFF_LOADING = 'OFF_LOADING'

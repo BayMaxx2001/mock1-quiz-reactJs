@@ -1,20 +1,47 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Space, Spin } from 'antd'
-import { useLoginContext } from '../../context/loginContext';
-import { useFormik } from 'formik'
+import { userAuthLogin } from '../../apis/userAuth_apis';
+import { useUserAuthContext } from '../../context/UserAuthContext'
+import { actionsUserAuth } from '../../actions'
 
 function FormLogin(props) {
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(false)
-    const [state, dispatch] = useLoginContext()
-    const { gmail, password } = state
-
+    const [state, dispatch] = useUserAuthContext();
+    //state.loading = false
+    // console.log('FormLogin', state)
+    const { loading } = state;
+    // console.log('loading', loading)
 
     const onFinish = (values) => {
-        setLoading(true)
+        dispatch(actionsUserAuth.OnLoading())
         console.log('Success:', values);
-        
+
+        const loadTokenToLocal = async (user) => {
+            const { success, data } = await userAuthLogin(user)
+            console.log('data', data)
+            if (success) {
+                if (data.user.role === 'user') {
+                    dispatch(actionsUserAuth.UserAuth(data))
+                    navigate('/Homepage')
+                } else {
+                    const tokens = data.tokens
+                    // dispatch({ type: 'USER_AUTH', payload: data })
+                    dispatch(actionsUserAuth.UserAuth(data))
+                    navigate('/Homepage')
+                }
+            } else {
+                alert(data)
+            }
+        }
+        loadTokenToLocal(values)
+
+
+        // localStorage.setItem('user', res.data.user)
+        // goi API -> DATA USER 
+        //dispath : payload : axios tra ve
+        //dispatch(res.data)
+        // data user
     };
 
     const onFinishFailed = (errorInfo) => {
