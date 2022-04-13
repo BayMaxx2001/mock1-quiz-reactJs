@@ -19,5 +19,6 @@ const LoginProvider = ({ children }) => {
 
 export { LoginProvider }
 export const useLoginContext = () => {
-    return useContext(LoginContext)
+    const [state, dispatch] = useContext(LoginContext)
+    return [state, dispatch]
 }
