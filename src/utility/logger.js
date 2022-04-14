@@ -1,14 +1,11 @@
-import loginReducer from '../reducers/loginReducer';
-
-
-function loggerLogin(reducer) {
+function loggerUserAuth(reducer) {
     return (prevState, action) => {
         console.group(action.type);
 
         console.log('prev state', prevState)
         console.log('action', action)
 
-        const newState = loginReducer()
+        const newState = reducer(prevState, action)
 
         console.log('new state', newState)
 
@@ -17,4 +14,4 @@ function loggerLogin(reducer) {
     }
 }
 
-export default loggerLogin
+export default loggerUserAuth

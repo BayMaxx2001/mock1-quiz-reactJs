@@ -1,37 +1,43 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button, Form, Input, Space, Spin } from 'antd'
+import { useNavigate, Link } from 'react-router-dom';
+import { Button, Form, Input, Space, Spin, message } from 'antd'
 import { userAuthLogin } from '../../apis/userAuth_apis';
 import { useUserAuthContext } from '../../context/UserAuthContext'
 import { actionsUserAuth } from '../../actions'
 
+const errorNotification = (data) => {
+    message.error(data)
+}
+
 function FormLogin(props) {
     const navigate = useNavigate();
     const [state, dispatch] = useUserAuthContext();
-    //state.loading = false
-    // console.log('FormLogin', state)
     const { loading } = state;
+
+    // console.log('FormLogin', state)
     // console.log('loading', loading)
 
     const onFinish = (values) => {
-        dispatch(actionsUserAuth.OnLoading())
         console.log('Success:', values);
 
         const loadTokenToLocal = async (user) => {
+            await dispatch(actionsUserAuth.OnLoading())
             const { success, data } = await userAuthLogin(user)
-            console.log('data', data)
+            await dispatch(actionsUserAuth.OffLoading())
+            console.log('get data API', data)
             if (success) {
                 if (data.user.role === 'user') {
                     dispatch(actionsUserAuth.UserAuth(data))
-                    navigate('/Homepage')
+                    navigate('/homepage')
                 } else {
-                    const tokens = data.tokens
+                    //const tokens = data.tokens
                     // dispatch({ type: 'USER_AUTH', payload: data })
                     dispatch(actionsUserAuth.UserAuth(data))
-                    navigate('/Homepage')
+                    navigate('/homepage')
                 }
             } else {
-                alert(data)
+                errorNotification(data);
+                // alert(data)
             }
         }
         loadTokenToLocal(values)
@@ -103,7 +109,7 @@ function FormLogin(props) {
                         <Button type="primary" htmlType="submit">
                             Submit
                         </Button>
-                        {/* <a onClick={() => { navigate('/register') }} >Create account</a> */}
+                        <Link to="/register">Create account</Link>
                         {loading && (<Spin style={{ marginLeft: 30 }} />)}
                     </Space>
                 </Form.Item>

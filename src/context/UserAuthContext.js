@@ -1,5 +1,6 @@
 import React, { useContext, useReducer } from 'react'
 import userAuth_reducer from '../reducers/userAuth_reducer'
+import loggerUserAuth from '../utility/logger'
 
 
 const initialState = {
@@ -12,7 +13,7 @@ const UserAuthContext = React.createContext()
 
 
 const UserAuthProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(userAuth_reducer, initialState)
+    const [state, dispatch] = useReducer(loggerUserAuth(userAuth_reducer), initialState)
     return (
         <UserAuthContext.Provider value={[state, dispatch]}>
             {children}

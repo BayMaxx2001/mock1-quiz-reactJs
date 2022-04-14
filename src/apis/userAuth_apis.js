@@ -5,7 +5,6 @@ axios.defaults.baseURL = 'https://fwa-ec-quiz.herokuapp.com';
 export const userAuthLogin = async (user) => {
     try {
         const res = await axios.post(`/v1/auth/login`, user)
-        //console.log('res', res)
         return {
             success: true,
             data: res.data
