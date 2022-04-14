@@ -4,7 +4,7 @@ import { Button, Form, Input, Space, Spin, message } from 'antd'
 import { userAuthLogin } from '../../apis/userAuth_apis';
 import { useUserAuthContext } from '../../context/UserAuthContext'
 import { actionsUserAuth } from '../../actions'
-
+import { setLocalStorageUser } from '../../utility/helpers'
 const errorNotification = (data) => {
     message.error(data)
 }
@@ -24,15 +24,18 @@ function FormLogin(props) {
             await dispatch(actionsUserAuth.OnLoading())
             const { success, data } = await userAuthLogin(user)
             await dispatch(actionsUserAuth.OffLoading())
+
             console.log('get data API', data)
             if (success) {
                 if (data.user.role === 'user') {
                     dispatch(actionsUserAuth.UserAuth(data))
+                    setLocalStorageUser(data)
                     navigate('/homepage')
                 } else {
                     //const tokens = data.tokens
                     // dispatch({ type: 'USER_AUTH', payload: data })
                     dispatch(actionsUserAuth.UserAuth(data))
+                    setLocalStorageUser(data)
                     navigate('/homepage')
                 }
             } else {

@@ -2,10 +2,8 @@ import { Button, Form, Input, message, Space, Spin } from 'antd'
 import React from 'react'
 import { useNavigate, Link } from 'react-router-dom';
 import { userAuthRegister } from '../../apis/userAuth_apis';
-import { SmileOutlined } from '@ant-design/icons';
 import { useUserAuthContext } from '../../context/UserAuthContext';
 import { actionsUserAuth } from '../../actions'
-
 
 const successNotification = () => {
     message.success('Register succesfully');
