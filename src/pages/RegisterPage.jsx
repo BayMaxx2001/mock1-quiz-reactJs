@@ -4,7 +4,6 @@ import FormRegister from '../components/common/FormRegister';
 function Register(props) {
     return (
         <div>
-            
             <FormRegister></FormRegister>
         </div>
     );

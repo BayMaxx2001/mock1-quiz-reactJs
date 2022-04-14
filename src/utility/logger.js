@@ -1,4 +1,4 @@
-function loggerUserAuth(reducer) {
+function logger(reducer) {
     return (prevState, action) => {
         console.group(action.type);
 
@@ -14,4 +14,4 @@ function loggerUserAuth(reducer) {
     }
 }
 
-export default loggerUserAuth
+export default logger

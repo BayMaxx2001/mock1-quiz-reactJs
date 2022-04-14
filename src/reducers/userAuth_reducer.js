@@ -1,4 +1,4 @@
-import { USER_AUTH, ON_LOADING, OFF_LOADING } from "../ConstantsAction"
+import { USER_AUTH, ON_LOADING, OFF_LOADING, REFRESH_TOKEN } from "../ConstantsAction"
 
 const userAuth_reducer = (state, action) => {
     switch (action.type) {
@@ -11,7 +11,11 @@ const userAuth_reducer = (state, action) => {
                 user: action.payload.user,
                 tokens: action.payload.tokens
             }
-
+        case REFRESH_TOKEN:
+            return {
+                ...state,
+                tokens: action.payload
+            }
         case ON_LOADING:
             return {
                 ...state,

@@ -35,7 +35,6 @@ function FormRegister(props) {
                 setTimeout(() => {
                     navigate('/')
                 }, 500);
-
             } else {
                 errorNotification(data);
                 //alert(data)
