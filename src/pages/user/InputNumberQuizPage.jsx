@@ -7,7 +7,6 @@ function InputNumberQuizPage(props) {
     return (
         <div>
             <InputNumberQuiz></InputNumberQuiz>
-
         </div>
     );
 }

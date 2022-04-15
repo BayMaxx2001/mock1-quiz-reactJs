@@ -6,6 +6,7 @@ import RegisterPage from './pages/RegisterPage';
 import Guard from './Guard/Guard';
 import UserDoQuiz from './pages/user/DoQuizPage';
 import InputNumberQuizPage from './pages/user/InputNumberQuizPage';
+import DoQuizPage from './pages/user/DoQuizPage';
 function App() {
   return (
     <div>
@@ -14,10 +15,10 @@ function App() {
           <Route path='/' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route element={<Guard />}>
-            <Route path='/homepage' element={<HomePage />} >
-              {/* <Route path='/do-quiz' element={<UserDoQuiz />} /> */}
+            <Route path='/homepage' element={<HomePage />} />
+            <Route path='/input-num-quiz' element={<InputNumberQuizPage />} >
             </Route>
-            <Route path='/input-num-quiz' element={<InputNumberQuizPage />} />
+            <Route path='/do-quiz' element={<DoQuizPage />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

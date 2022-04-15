@@ -8,6 +8,8 @@ const initialState = {
     loadingResult: false,
     loadingQuestion: false,
     numberQuestion: 0,
+    listQuestion: [],
+    questionId: 0,
     result: 0
 }
 

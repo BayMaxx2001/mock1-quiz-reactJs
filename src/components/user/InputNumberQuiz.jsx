@@ -20,7 +20,7 @@ export default function InputNumberQuiz() {
         }, 200)
         console.log(values)
         dispatch(actionsQuestion.SetNumberQuestion(values.numbersquestion))
-         navigate('do-quiz')
+        navigate('/do-quiz')
         message.success(`Let'start you have ${values.numbersquestion} questions `);
     };
 
