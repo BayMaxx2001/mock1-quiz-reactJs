@@ -5,8 +5,8 @@ import logger from '../utility/logger'
 
 const initialState = {
     loading: false,
-    user: {},
-    tokens: {}
+    user: JSON.parse(localStorage.getItem('user')),
+    tokens: JSON.parse(localStorage.getItem('tokens'))
 }
 
 const UserAuthContext = React.createContext()

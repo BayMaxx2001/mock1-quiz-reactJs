@@ -4,8 +4,9 @@ export function setLocalStorageUser(data) {
     localStorage.setItem('refreshTokenUser', data.tokens.refresh.token)
     localStorage.setItem('user', JSON.stringify(data.user))
     localStorage.setItem('expires', data.tokens.access.expires)
-}
+    localStorage.setItem('tokens', JSON.stringify(data.tokens))
 
+}
 
 export function removeLocalStorageUser(data) {
     localStorage.removeItem('accessTokenUser')

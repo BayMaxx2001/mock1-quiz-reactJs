@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 function HomePage(props) {
     const [state, dispatch] = useUserAuthContext()
-    const { user } = state
-
+    //const { user } = state
+    const user = JSON.parse(localStorage.getItem('user'))
     console.log('HomePage', state)
     return (
         <div>

@@ -1,11 +1,10 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://fwa-ec-quiz.herokuapp.com';
+axios.defaults.baseURL = 'https://fwa-ec-quiz-mock1.herokuapp.com';
 
 export const userAuthLogin = async (user) => {
     try {
         const res = await axios.post(`/v1/auth/login`, user)
-
         return {
             success: true,
             data: res.data

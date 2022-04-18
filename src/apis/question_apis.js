@@ -1,8 +1,10 @@
 import axios from "axios";
+axios.defaults.baseURL = 'https://fwa-ec-quiz-mock1.herokuapp.com';
 
 export const getQuestionUsers = async (limit) => {
     try {
-        const res = await axios.get(`/v1/questions?limit=${limit}`)
+        console.log('getQuestionUSER', limit)
+        const res = await axios.get(`/v1/questions/?limit=${limit}`)
         return {
             success: true,
             data: res.data

@@ -7,10 +7,10 @@ const initialState = {
     loading: false,
     loadingResult: false,
     loadingQuestion: false,
-    numberQuestion: 0,
+    numberQuestion: localStorage.getItem('numberQuestion'),
     listQuestion: [],
     questionId: 0,
-    result: 0
+    result: localStorage.getItem('result')
 }
 
 const QuestionContext = React.createContext()
