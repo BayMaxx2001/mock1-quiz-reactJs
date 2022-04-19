@@ -10,6 +10,7 @@ import UserDoQuiz from './pages/user/DoQuizPage';
 import InputNumberQuizPage from './pages/user/InputNumberQuizPage';
 import DoQuizPage from './pages/user/DoQuizPage';
 import AdminAddQuestionPage from './pages/admin/AdminAddQuestionPage';
+import AdminDetailQuestionPage from './pages/admin/AdminDetailQuestionPage';
 function App() {
   return (
     <div>
@@ -23,9 +24,11 @@ function App() {
             <Route path='/do-quiz' element={<DoQuizPage />}></Route>
             <Route path='/admin-list-question' element={<AdminListQuestionPage />} />
             <Route path='/admin-add-question' element={<AdminAddQuestionPage />} />
+            <Route path='/admin-detail-question/:id' element={<AdminDetailQuestionPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
+
     </div>
   );
 }

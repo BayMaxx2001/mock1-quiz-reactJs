@@ -50,7 +50,8 @@ function QuestionList(props) {
     }
 
     const clickDetail = (idQuestion) => {
-        navigate('/question-detail/' + idQuestion)
+        console.log(idQuestion)
+        navigate('/admin-detail-question/' + idQuestion)
     }
     return (
         <div>
