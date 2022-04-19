@@ -36,7 +36,7 @@ function FormLogin(props) {
                     // dispatch({ type: 'USER_AUTH', payload: data })
                     dispatch(actionsUserAuth.UserAuth(data))
                     setLocalStorageUser(data)
-                    navigate('/homepage')
+                    navigate('/admin-list-question')
                 }
             } else {
                 errorNotification(data);

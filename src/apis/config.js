@@ -3,7 +3,7 @@ import { refreshTokenAPI } from "./userAuth_apis";
 import { parseJwt } from '../utility/helpers'
 import { Navigate } from "react-router-dom";
 
-
+axios.defaults.baseURL = 'https://fwa-ec-quiz-mock1.herokuapp.com';
 
 axios.interceptors.request.use(async (req) => {
     // console.log('interceptors', req)

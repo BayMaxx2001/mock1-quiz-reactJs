@@ -36,8 +36,6 @@ import { actionsUserAuth } from '../actions';
 const useAuth = () => {
     const accessTokenInLocalStorage = localStorage.getItem('accessTokenUser')
     const token = { token: accessTokenInLocalStorage };
-    console.log('token', token)
-    console.log('token.token', token.token)
     return token && token.token;
 }
 

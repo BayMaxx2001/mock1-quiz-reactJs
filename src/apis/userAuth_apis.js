@@ -1,6 +1,5 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://fwa-ec-quiz-mock1.herokuapp.com';
 
 export const userAuthLogin = async (user) => {
     try {
